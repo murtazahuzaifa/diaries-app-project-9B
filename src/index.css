@@ -6,3 +6,25 @@
 button{
   cursor: pointer;
 }
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(158, 158, 158); 
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+}

@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import { green } from '@material-ui/core/colors';
 import { Formik, Form, Field, FormikHelpers } from 'formik';
 import { Button, LinearProgress, Typography, Grid, FormControl } from '@material-ui/core';
+import ColorButton from '../../components/buttons/GreenButton';
 // import TextField from '@material-ui/core/TextField';
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
@@ -78,16 +79,6 @@ const LoginForm: FC = () => {
                 .required('Password is required')
                 .min(8, "Atleast 8 characters"),
         })
-    const ColorButton = withStyles((theme: Theme) => ({
-        root: {
-            color: theme.palette.getContrastText(green[500]),
-            backgroundColor: green[500],
-            width: '100%',
-            '&:hover': {
-                backgroundColor: green[700],
-            },
-        },
-    }))(Button);
 
     return (
             <div  className={classes.container} >

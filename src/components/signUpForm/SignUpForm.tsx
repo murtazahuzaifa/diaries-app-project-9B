@@ -12,6 +12,7 @@ import { green } from '@material-ui/core/colors';
 // import Typography from "@material-ui/core/Typography";
 import { Button, LinearProgress, Typography, Grid, FormControl } from '@material-ui/core';
 import { Formik, Form, Field, FormikHelpers } from 'formik';
+import ColorButton from '../../components/buttons/GreenButton';
 // import TextField from '@material-ui/core/TextField';
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
@@ -93,17 +94,6 @@ const SignUpForm: FC = () => {
         console.log(values);
         setSubmitting(false)
     }
-
-    const ColorButton = withStyles((theme: Theme) => ({
-        root: {
-            color: theme.palette.getContrastText(green[500]),
-            backgroundColor: green[500],
-            width: '100%',
-            '&:hover': {
-                backgroundColor: green[700],
-            },
-        },
-    }))(Button);
 
     return (
         <React.Fragment >

@@ -1,0 +1,107 @@
+.userHome{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+/* Navigation bar styling */
+.navBar{
+    width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgb(68, 146, 68) 3%, rgb(100, 218, 100) 20%);
+}
+.navBar > div:nth-child(1){ padding: 0 10px;  width: 20%; }
+.navBar > div:nth-child(2){ justify-content: center;  width: 100%; }
+.navBar > div:nth-child(3){ justify-content: flex-end; padding: 0 10px;  width: 20%; }
+
+.navBar > div{ 
+    display: flex; 
+    box-sizing: border-box; 
+    align-items: center;
+    text-align: center;
+}
+
+/* Panes styling */
+.mainPain{
+    box-sizing: border-box;
+    max-width: 100%;
+    height: calc(100% - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.leftPane{
+    width: 300px;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    overflow-y: auto;
+    background-color: rgba(220, 243, 221,0.56);
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px 2px rgb(1, 82, 1);
+    border-radius: 5px;
+}
+.leftPaneInDrawer{
+    width: 300px;
+    height: 100%;
+    padding: 10px;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.rightPane{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: rgba(220, 243, 221, 0.56);
+    box-sizing: border-box;
+    overflow-y: auto;
+    box-shadow: 2px 2px 5px 2px rgb(1, 82, 1);
+    border-radius: 5px;
+}
+
+.title{
+    font-size: x-large;
+    outline: none;
+    border: 3px solid rgba(0, 126, 0, 0) ;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.15s;
+}
+.seperator{
+    width: 100%;
+    margin: 5px 0;
+    background-color: green;
+    border: 0.5px solid green;
+}
+.content{
+    font-size: x-large;
+    outline: none;
+    resize: none;
+    border: 3px solid rgba(0, 126, 0, 0) ;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.15s;
+}
+
+/* focus handling */
+.title:focus, .content:focus{
+    border: 3px solid rgba(0, 126, 0, 1) ;
+}
