@@ -1,0 +1,2 @@
+mirage js Detail implementation
+https://www.smashingmagazine.com/2020/04/miraje-js-models-associations/
