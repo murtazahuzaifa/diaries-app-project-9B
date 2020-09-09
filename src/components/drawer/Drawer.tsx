@@ -21,10 +21,12 @@ type PropType = {
     children: React.ReactNode,
     isOpen: boolean,
     setOpen: (val:boolean)=> void,
-    anchor: "bottom" | "left" | "right" | "top" | undefined
+    anchor: "bottom" | "left" | "right" | "top" | undefined,
+    display?: boolean,
+    _className?: string,
 }
 
-const Drawer: React.FC<PropType> = ({children, isOpen, setOpen, anchor}) => {
+const Drawer: React.FC<PropType> = ({children, isOpen, setOpen, anchor, display, _className=''}) => {
 
     const classes = useStyles();
 
@@ -36,6 +38,8 @@ const Drawer: React.FC<PropType> = ({children, isOpen, setOpen, anchor}) => {
         else { setOpen(false) }
     };
 
+    if (display===false) return <div className={_className}>{children}</div>
+
     return (
         <div >
             <SwipeableDrawer
@@ -44,7 +48,7 @@ const Drawer: React.FC<PropType> = ({children, isOpen, setOpen, anchor}) => {
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
             >
-                {children}
+                <div className={_className}>{children}</div>
             </SwipeableDrawer>
         </div>
     );

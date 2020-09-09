@@ -20,7 +20,7 @@ const App: FC = () => {
 
   return (
     <div className={`${style.app}`} >
-      <UserHome />
+      <Home />
     </div>
   )
 }
