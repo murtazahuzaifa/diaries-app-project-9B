@@ -14,7 +14,7 @@
     background: linear-gradient(0deg, rgb(68, 146, 68) 3%, rgb(100, 218, 100) 20%);
 }
 .navBar > div:nth-child(1){ padding: 0 10px;  width: 20%; }
-.navBar > div:nth-child(2){ justify-content: center;  width: 100%; }
+.navBar > div:nth-child(2){ justify-content: center;  width: 100%; color:whitesmoke; text-shadow: 0px 0px 10px darkgreen; }
 .navBar > div:nth-child(3){ justify-content: flex-end; padding: 0 10px;  width: 20%; }
 
 .navBar > div{ 
@@ -25,51 +25,16 @@
 }
 
 /* Panes styling */
-.mainPain{
+.mainbody{
     box-sizing: border-box;
-    max-width: 100%;
-    height: calc(100% - 90px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow-y: auto;
+    margin: 0 auto;
 }
 
-.LP{ /*leftPane*/
-    width: 300px;
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-    overflow-y: auto;
-    background-color: rgba(220, 243, 221,0.56);
-    box-sizing: border-box;
-    box-shadow: 2px 2px 5px 2px rgb(1, 82, 1);
-    border-radius: 5px;
-}
-.LPID{  /*leftPaneInDrawer*/
-    width: 300px;
-    height: 100%;
-    padding: 10px;
-    display: flex; flex-direction: column;
-    overflow-y: auto;
-    box-sizing: border-box;
-}
- 
-.RP{  /*right Pane*/
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    background-color: rgba(220, 243, 221, 0.56);
-    box-sizing: border-box;
-    overflow-y: auto;
-    box-shadow: 2px 2px 5px 2px rgb(1, 82, 1);
-    border-radius: 5px;
+.mainbody > div{
+    margin: 20px;
 }
 
 .title{
@@ -104,4 +69,58 @@
 /* focus handling */
 .title:focus, .content:focus{
     border: 3px solid rgba(0, 126, 0, 1) ;
+}
+
+/*   //////////////////////   add Button  styling     ////////////////  */
+.addBtn {
+    user-select: none;
+    width: 315px;
+    height: 335px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 500px;
+    border-radius: 20px;
+    padding: 20px;
+    color: green;
+    background-color: rgba(213, 253, 152, 0.5);
+    box-shadow: 5px 5px 10px rgba(2, 95, 7, 0.5);
+    transition: 0.10s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.addBtn:focus{ border: 5px solid green; }
+.addBtn:hover{ background-color: rgba(146, 180, 94, 0.63); }
+.addBtn:active{ background-color: rgba(7, 196, 7, 0.301); box-shadow: 3px 3px 3px rgba(2, 95, 7, 0.5);}
+
+
+/*   //////////////////////   diaryEntryContainer  styling     ////////////////  */
+.diaryEntryContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* margin: 0 auto; */
+}
+.diaryEntryContainer > div:nth-child(1){
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    text-decoration: none;
+    color: whitesmoke;
+    -webkit-text-stroke: 2px darkgreen;
+    text-align: center;
+    font-size: 25px;
+}
+.diaryEntryContainer > div{ margin: 20px; }
+
+
+@media only screen and (max-width: 500px){
+    .diaryEntryContainer > div:nth-child(1){ font-size: 15px; -webkit-text-stroke: 1px darkgreen; } 
 }

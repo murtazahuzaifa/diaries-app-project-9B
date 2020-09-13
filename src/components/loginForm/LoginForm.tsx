@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { createStyles, Theme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockRounded from '@material-ui/icons/LockRounded';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import clsx from 'clsx';
 // import Button from '@material-ui/core/Button';
-import { green } from '@material-ui/core/colors';
+// import { green } from '@material-ui/core/colors';
 import { Formik, Form, Field, FormikHelpers } from 'formik';
-import { Button, LinearProgress, Typography, Grid, FormControl } from '@material-ui/core';
+import { Typography, Grid,} from '@material-ui/core';
 import ColorButton from '../../components/buttons/GreenButton';
 // import TextField from '@material-ui/core/TextField';
 import { TextField } from 'formik-material-ui';
@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: 'column',
             alignItems: 'center',
             minWidth: '287px',
-            padding: '10px',
             borderRadius: '10px',
             backgroundColor: 'rgba(255,255,255,1)',
         },
@@ -44,15 +43,17 @@ interface State {
     showPassword: boolean;
 }
 interface FormValues {
-    userId: string;
+    userName: string;
     password: string
 }
 
 const formInitialValue:FormValues = {
-    userId: '',
-    password: '',
+    userName: 'superuser',
+    password: '12345678',
 }
-const LoginForm: FC = () => {
+
+
+const LoginForm: FC<{setCridentails?:(val:FormValues)=>void}> = ({setCridentails}) => {
     const classes = useStyles();
 
     const [values, setValues] = React.useState<State>({
@@ -68,13 +69,13 @@ const LoginForm: FC = () => {
     //   };
 
     const onSubmit = (values:FormValues, { setSubmitting }:FormikHelpers<FormValues>):void => {
-        console.log(values);
         setSubmitting(false)
+        if (setCridentails) setCridentails(values)
     }
 
     const fromSchema = Yup.object<FormValues>({
-            userId: Yup.string()
-                .required("Name field is required"),
+            userName: Yup.string()
+                .required("User name is required"),
             password: Yup.string()
                 .required('Password is required')
                 .min(8, "Atleast 8 characters"),
@@ -91,7 +92,7 @@ const LoginForm: FC = () => {
                                 <Grid container spacing={1} alignItems="flex-end">
                                     <Grid item> <AccountCircle /> </Grid>
                                     <Grid item>
-                                        <Field component={TextField} name="userId" label="User ID" type='text' />
+                                        <Field required component={TextField} name="userName" label="User Name" type='text' />
                                     </Grid>
                                 </Grid>
                             </div>
@@ -100,7 +101,7 @@ const LoginForm: FC = () => {
                                 <Grid container spacing={1} alignItems="flex-end">
                                     <Grid item> <LockRounded /></Grid>
                                     <Grid item>
-                                        <Field component={TextField} label="Password" name="password" 
+                                        <Field required component={TextField} label="Password" name="password" 
                                             type={values.showPassword ? 'text' : 'password'}  />
                                     </Grid>
                                     <Grid item>

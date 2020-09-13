@@ -6,10 +6,12 @@
 body{
   min-width: 279px;
   max-width: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 button{
   cursor: pointer;
+  user-select: none;
 }
 
 

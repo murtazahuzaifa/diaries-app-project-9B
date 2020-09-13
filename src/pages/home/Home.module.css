@@ -3,7 +3,6 @@
     height: 100%;
     overflow-y: auto;
     background: radial-gradient(rgb(216, 255, 216), rgb(146, 255, 146));
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Navigation bar styling */
@@ -68,13 +67,13 @@
 
 @media only screen and (max-width: 800px){
     .navBar > div:nth-child(1){ display: none }
-    .navBar > div:nth-child(2){ justify-content: start; margin-left:7px; width: 50%; font-size: 15px; }
+    .navBar > div:nth-child(2){ justify-content: start; margin-left:10px; width: 50%; font-size: 15px; }
 
     .homeBody{ margin: 150px 0; height: 500px; }
 
     .homeBody > div:nth-child(1){  /*text div*/
         text-align: center;
-        font-size: 28px;
+        font-size: 27px;
         width: 450px;
      }
     .homeBody > div:nth-child(2){ margin: 40px 0; width: 100%;  }
@@ -82,9 +81,9 @@
 
 }
 @media only screen and (max-width: 500px){
-     .navBar > div:nth-child(2){ font-size: 12px; }
+     .navBar > div:nth-child(2){ font-size: 12px; margin-left:10px; }
     
-     .homeBody{ margin: 50px 0; height: 500px; }
+     .homeBody{ margin: 50px 0; height: 450px; }
      
     .homeBody > div:nth-child(1){ font-size: 20px; width: 350px; }
     .homeBody > div:nth-child(2){ margin: 0px 0; width: 100%; }

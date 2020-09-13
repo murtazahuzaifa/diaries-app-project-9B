@@ -1,0 +1,52 @@
+.borderBtn{
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid green;
+    outline: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px;
+    color: green;
+    transition: 0.15s;
+    background-color: rgba(0, 128, 0, 0);
+}
+.borderBtn:focus{
+    box-shadow: 0 0 1px 1.5px green;
+    text-shadow: 0 0 1px green;
+}
+.borderBtn:hover{background-color: rgba(2, 2, 2, 0.089); }
+.borderBtn:hover > .arrowRight{
+    position: relative;
+    animation: moveRight ease-in-out infinite alternate .5s;
+    left: 5px;
+}
+.borderBtn:active {background-color: rgba(2, 2, 2, 0.342); }
+
+
+.filledBtn{
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid green;
+    outline: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px;
+    color: whitesmoke;
+    transition: 0.15s;
+    background-color: rgb(8, 173, 8);
+}
+.filledBtn:focus{
+    box-shadow: 0 0 1px 1.5px green;
+    text-shadow: 0 0 1px green;
+}
+.filledBtn:hover{ background-color: rgb(9, 156, 9); }
+.filledBtn:active{ background-color: rgb(7, 131, 7); }
+
+@keyframes moveRight {
+    0% { left: -5px; }
+    100% { left: 5px; }
+}

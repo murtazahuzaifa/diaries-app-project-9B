@@ -1,24 +1,21 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Diary } from '../../interfaces/diary.interface';
 
-const sliceState:{token:string|null, isAuthenticated:boolean} = {token: null, isAuthenticated: false }
+const sliceState: { diaryList: Diary[] } = { diaryList: [] }
 
-const homeSlice = createSlice({
-    name:'auth',
+export const userHomeSlice = createSlice({
+    name: 'auth',
     initialState: sliceState,
     reducers: {
-        authenticateUser: (state, {payload}:PayloadAction<string>)=>{
-            state.token = payload
-            state.isAuthenticated = true
+        updateDiaries: (state, { payload }: PayloadAction<Diary[]>) => {
+            state.diaryList = payload
         },
-        setAuthenticate:(state, {payload}:PayloadAction<boolean>)=>{ 
-            state.isAuthenticated = payload
+        removeDiaries: (state) => {
+            state.diaryList = []
         },
-        setToken: (state, {payload}:PayloadAction<string>)=>{ 
-            state.token = payload
-        }
     }
 })
 
-export const {authenticateUser, setAuthenticate, setToken} = homeSlice.actions;
+export const { updateDiaries, removeDiaries } = userHomeSlice.actions;
 
-export default homeSlice.reducer;
+export default userHomeSlice.reducer;
