@@ -1,44 +1,50 @@
 .diaryTile{
     width: 315px;
-    /* min-width: 3150px; */
-    /* max-width: 315px; */
-    display: flex;
-    flex-direction: column;
+    height: 335px;
+    /* display: flex; */
+    /* flex-direction: column; */
     background-color: rgb(213, 253, 152);
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 18.5px;
     border-radius: 20px;
     /* text-align: left; */
     padding: 20px 10px;
     box-shadow: 5px 5px 10px rgba(2, 95, 7, 0.5);
+    overflow: hidden;
 }
+.editBtn{position: relative; top:-310px; left:250px; visibility: hidden;}
+.editBtn:hover{ visibility: visible; }
 
 .diaryTile > div {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .diaryTile > div:nth-child(1){
     width: 100%;
     text-align: center;
 }
-.entryTile > div:nth-child(1)> h1{ 
+.diaryTile > div:nth-child(1)> h1{ 
     text-overflow: ellipsis;
     white-space: nowrap;
     -moz-white-space: nowrap;
     overflow: hidden;
  }
+ .diaryTile > div:nth-child(1):hover ~ .editBtn{ visibility: visible; }
 
 .diaryTile > div:nth-child(2){
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.diaryTile > div:nth-child(3)>span{
+.diaryTile > div:nth-child(3),
+.diaryTile > div:nth-child(4){
+    font-size: 17px;
+}
+
+.diaryTile > div:nth-child(3)>span, 
+.diaryTile > div:nth-child(4)>span{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(107, 107, 107);
 }
-.diaryTile > div:nth-child(4) span{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(107, 107, 107);
-}
+
 .lockIcon{
     display: flex;
     align-items: center;

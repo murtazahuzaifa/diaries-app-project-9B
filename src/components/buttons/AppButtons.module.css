@@ -1,4 +1,7 @@
 .borderBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     font-size: 12px;
     font-weight: bold;
@@ -26,6 +29,9 @@
 
 
 .filledBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     font-size: 12px;
     font-weight: bold;

@@ -9,6 +9,7 @@ import request from '../../services/request';
 import { useAppDispatch } from '../../store/store';
 import {addDiary} from './diarySlice';
 import {setUser} from '../auth/userSlice';
+// import {showAlert} from '../../utils';
 // import { Entry } from '../../interfaces/entry.interface';
 // import { Entry } from '../../interfaces/entry.interface';
 // import {diarySlice} from './diarySlice';
@@ -43,7 +44,7 @@ const UserDiaries: FC = () => {
             },
         ]);
 
-        if (value[0] && value[1]) {
+        if ( value && value[0] && value[1]) {
             await request.post<{title:string,type:string,userId:string},{user:User,diary:Diary}>(`/diaries/${userId}`,{
                 title: value[0],
                 type: value[1],
@@ -51,7 +52,6 @@ const UserDiaries: FC = () => {
             }).then(({diary, user})=>{
                 dispatch(addDiary(diary))
                 dispatch(setUser(user))
-                console.log(diary);
             }).catch(error =>{ console.log(error) } )
             
             return Swal.fire({
@@ -61,7 +61,7 @@ const UserDiaries: FC = () => {
               });
         }
         Swal.fire({
-            titleText: 'Unable to create new diary',
+            titleText: 'Cancelled',
             confirmButtonColor: "rgb(170, 0, 0)",
         });
     };

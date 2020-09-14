@@ -1,21 +1,21 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {User} from '../../interfaces/user.interface';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User } from '../../interfaces/user.interface';
 
 // let sliceState:User|null = null
 
 export const userSlice = createSlice({
-    name:'user',
-    initialState: null as User|null,
+    name: 'user',
+    initialState: null as User | null,
     reducers: {
-        setUser: (state, {payload}:PayloadAction<User>)=>{
+        setUser: (state, { payload }: PayloadAction<User>) => {
             return (state = payload);
         },
-        unSetUser: (state)=>{
-            state = null
+        unSetUser: (state) => {
+            return (state = null);
         },
     }
 })
 
-export const {setUser, unSetUser } = userSlice.actions;
+export const { setUser, unSetUser } = userSlice.actions;
 
 export default userSlice.reducer;

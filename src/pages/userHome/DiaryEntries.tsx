@@ -4,22 +4,27 @@ import { useSelector } from 'react-redux';
 import { RootStateType } from '../../store/parentReducer';
 import EntryTile from '../../components/entryTile/EntryTile';
 import { useAppDispatch } from '../../store/store';
-import { updateEnteries, addEntry } from './entrySlice';
+import { updateEntries, addEntry } from './entrySlice';
 import { updateDiary } from './diarySlice';
 import { Diary } from '../../interfaces/diary.interface';
 import { Entry } from '../../interfaces/entry.interface';
 import request from '../../services/request';
 import style from './UserHome.module.css';
 import { Link } from 'react-router-dom';
-// import DiaryTile from '../../components/diaryTile/DiaryTile';
 import EntryInput from '../../components/entryInput/EntryInput';
+// import Swal from 'sweetalert2';
+// import DiaryTile from '../../components/diaryTile/DiaryTile';
 
 const DiaryEntries: FC = () => {
     const entryList = useSelector((state: RootStateType) => state.entries.entryList);
     const userName = useSelector((state: RootStateType) => state.user?.userName);
     const [isEntryOpen, setEntryOpen] = useState<boolean>(false);
+    // const [entryTitle, setEntryTitle] = useState<string>('');
+    // const [entryContent, setEntryContent] = useState<string>('');
+    // const [canEditEntry, setCanEditEntry] = useState<boolean>(false)
     const dispatch = useAppDispatch();
     const { diaryId } = useParams();
+    // const [canEdit, setCanEdit] = useState<boolean>(true);
 
     const onEntrySave = (title:string, content:string,)=>{
         request.post<{title:string, content:string, diaryId:string}, {diary:Diary, entry:Entry}>(`/diaries/entries/${diaryId}`,
@@ -30,26 +35,29 @@ const DiaryEntries: FC = () => {
         }).catch(error=> console.log(error));
     }
 
-    useEffect(() => {
+    const afterRender = () => {
         request.get<{}, { entries: Entry[] }>(`/diaries/entries/${diaryId}`)
-            .then(data => { dispatch(updateEnteries(data.entries)) })
+            .then(data => { dispatch(updateEntries(data.entries)) })
             .catch(error => { console.log(error) });
-    }, [])
+    }
+    useEffect(afterRender, [])
 
     return (
         <>
-            <EntryInput visible={isEntryOpen} onCancel={() => { setEntryOpen(false) }} onSave={onEntrySave} />
+            {!isEntryOpen || <EntryInput visible={isEntryOpen} onCancel={() => { setEntryOpen(false) }} onSave={onEntrySave} />}
             <div className={`${style.diaryEntryContainer}`} >
                 <div><h1><Link to={`/${userName}`}>⮜ Diaries</Link> \ Entries</h1></div>
-                <div ><button title='add entry' onClick={() => { setEntryOpen(true) }} className={`${style.addBtn}`} >+</button></div>
+                <div ><button title='add entry' onClick={()=>{setEntryOpen(true)}} className={`${style.addBtn}`} >+</button></div>
                 {
-                    entryList.map(({ title, content, updatedAt, createdAt }, idx) => (
+                    entryList.map(({id, title, content, updatedAt, createdAt }, idx) => (
                         <EntryTile
                             key={idx}
+                            id={id}
                             title={title}
                             content={content}
                             updatedAt={updatedAt}
                             createdAt={createdAt}
+                            // onClick={()=>{ setEntryOpen(true); setEntryTitle(title); setEntryContent(content)}}
                         />
                     ))
                 }

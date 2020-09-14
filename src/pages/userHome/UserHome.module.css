@@ -5,6 +5,7 @@
 }
 /* Navigation bar styling */
 .navBar{
+    user-select: none;
     width: 100%;
     height: 70px;
     box-sizing: border-box;

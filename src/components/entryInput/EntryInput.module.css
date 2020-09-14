@@ -39,10 +39,11 @@
     margin: 0 10px;
 }
 
-.title{
+.titleEdit{
     font-size: x-large;
     outline: none;
     border: 3px solid rgba(0, 126, 0, 0) ;
+    background-color: whitesmoke;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -55,11 +56,12 @@
     background-color: rgb(255, 255, 255);
     border: 0.5px solid rgb(255, 255, 255);
 }
-.content{
+.contentEdit{
     font-size: x-large;
     outline: none;
     resize: none;
     border: 3px solid rgba(0, 126, 0, 0) ;
+    background-color: whitesmoke;
     height: 100%;
     width: 100%;
     padding: 10px;
@@ -68,7 +70,24 @@
     transition: all 0.15s;
 }
 
+.title{
+    font-size: 30px;
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+}
+.content{
+    font-size: larger;
+    background-color: whitesmoke;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px;
+}
 /* focus handling */
-.title:focus, .content:focus{
+.titleEdit:focus, .contentEdit:focus{
     border: 3px solid rgba(0, 126, 0, 1) ;
 }

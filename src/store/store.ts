@@ -3,7 +3,7 @@ import parentReducer from './parentReducer';
 import {useDispatch} from 'react-redux';
 
 const store = configureStore({
-    reducer: parentReducer
+    reducer: parentReducer,
 })
 
 export type AppDispatch = typeof store.dispatch;

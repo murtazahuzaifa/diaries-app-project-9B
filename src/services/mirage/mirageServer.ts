@@ -40,7 +40,10 @@ export const runServer = (env?: string): Server => {
             diary: Factory.extend({
                 type: 'Public',
                 userId: '1',
-                title: 'My codes',
+                title: 'Open Sources',
+                entryIds: [],
+                createdAt: new Date().toString().split(' ').slice(0,5).join(' '),
+                updatedAt: new Date().toString().split(' ').slice(0,5).join(' ')
             }),
             
             entry: Factory.extend({
@@ -52,7 +55,8 @@ export const runServer = (env?: string): Server => {
 
         seeds: (server): any => {
             server.create('user');
-            server.create('diary');
+            server.create<any,any,any>('diary');
+            server.create<any,any,any>('diary', {title:"My codes", type:'Private'});
         },
 
         routes() {
