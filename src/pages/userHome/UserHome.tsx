@@ -53,7 +53,7 @@ const UserHome: FC = () => {
 
     const callBack = () => {
         if (!isAuthenticated) {
-            navigate(`/auth/login`)
+            navigate(`/`)
         }
         if (isAuthenticated && userId) {
             request.get<{}, { diaries: Diary[] }>(`/diaries/${userId}`)

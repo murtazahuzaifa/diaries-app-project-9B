@@ -40,7 +40,7 @@ export const runServer = (env?: string): Server => {
             diary: Factory.extend({
                 type: 'Public',
                 userId: '1',
-                title: 'Open Sources',
+                title: 'Open Source',
                 entryIds: [],
                 createdAt: new Date().toString().split(' ').slice(0,5).join(' '),
                 updatedAt: new Date().toString().split(' ').slice(0,5).join(' ')
