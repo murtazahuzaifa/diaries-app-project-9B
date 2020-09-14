@@ -7,7 +7,6 @@
     "@material-ui/icons": "^4.9.1",
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.20.0",
-    "dayjs": "^1.8.35",
     "formik": "^2.1.5",
     "formik-material-ui": "^3.0.0-alpha.0",
     "history": "^5.0.0",
